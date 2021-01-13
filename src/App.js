@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header/Header";
 import { useForm } from "react-hook-form";
 import "./App.css";
@@ -7,6 +7,13 @@ function App() {
   //state of the tasks
   const [itemsState, setItems] = useState({
     items: [],
+  });
+
+  //sorting items array with useEffect hook
+  useEffect(() => {
+    itemsState.items.sort(function (a, b) {
+      return new Date(b.enddate) - new Date(a.enddate);
+    });
   });
 
   //react hook form
