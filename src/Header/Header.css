@@ -1,0 +1,12 @@
+.Header {
+  height: 4rem;
+  width: 100%;
+  background-color: rgb(255, 196, 0);
+  text-align: center;
+}
+h1 {
+  color: azure;
+  font-size: 3rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
