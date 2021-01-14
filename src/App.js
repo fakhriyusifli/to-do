@@ -9,10 +9,56 @@ function App() {
     items: [],
   });
 
-  //sorting items array with useEffect hook
+  //sorting items array by date with useEffect hook
   useEffect(() => {
     itemsState.items.sort(function (a, b) {
       return new Date(b.enddate) - new Date(a.enddate);
+    });
+  });
+
+  //sorting items array by date status useEffect hook
+  useEffect(() => {
+    itemsState.items.sort(function (a, b) {
+      if (
+        a.status === "To Do" &&
+        (b.status === "In Progress" || b.status === "Done")
+      ) {
+        return -1;
+      } else if (a.status === "In Progress" && b.status === "Done") {
+        return -1;
+      } else if (
+        b.status === "To Do" &&
+        (a.status === "In Progress" || a.status === "Done")
+      ) {
+        return 0;
+      } else if (b.status === "In Progress" && a.status === "Done") {
+        return 0;
+      } else {
+        return 1;
+      }
+    });
+  });
+
+  //sorting items array by priority with useEffect hook
+  useEffect(() => {
+    itemsState.items.sort(function (a, b) {
+      if (
+        a.priority === "High" &&
+        (b.priority === "Medium" || b.priority === "Low")
+      ) {
+        return -1;
+      } else if (a.priority === "Medium" && b.priority === "Low") {
+        return -1;
+      } else if (
+        b.priority === "High" &&
+        (a.priority === "Medium" || a.priority === "Low")
+      ) {
+        return 0;
+      } else if (b.priority === "Medium" && a.priority === "Low") {
+        return 0;
+      } else {
+        return 1;
+      }
     });
   });
 
