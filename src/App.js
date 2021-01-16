@@ -189,7 +189,7 @@ function App() {
               ref={register({ required: true })}
             >
               <option value="">Select...</option>
-              <option value="High">Hight</option>
+              <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
             </select>
